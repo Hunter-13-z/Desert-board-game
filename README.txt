@@ -1,16 +1,3 @@
-from PIL import Image
-import base64
-from io import BytesIO
-
-# Load the image
-img = Image.open(' gameplay.png')
-buf = BytesIO()
-img.save(buf, format="PNG")
-img_b64 = base64.b64encode(buf.getvalue()).decode('utf-8')
-
-# Build README text
-readme_text = f"""
-README - Le Desert Interdit (Java MVC Project)
 
 -----------------------------------------------
 Overview
@@ -43,25 +30,3 @@ Run:
 
 A window will open with the full game interface.
 
------------------------------------------------
-Screenshot (Base64 Embedded)
------------------------------------------------
-Below is the screenshot encoded in Base64 (PNG):
-
------- IMAGE BASE64 START ------
-{img_b64}
------- IMAGE BASE64 END ------
-
------------------------------------------------
-Author
------------------------------------------------
-Hongfei ZHANG
-University of Amsterdam
-"""
-
-# Save to file
-output_path = "/mnt/data/README.txt"
-with open(output_path, "w") as f:
-    f.write(readme_text)
-
-output_path
